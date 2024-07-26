@@ -26,7 +26,11 @@ const Search = () => {
         />
         <motion.label
           htmlFor="pdt_search"
-          animate={focus ? { y: -24, fontSize: "16px", color: "#444" } : {}}
+          animate={
+            focus
+              ? { y: -24, fontSize: "16px", color: "#444", fontWeight: "bold" }
+              : {}
+          }
           transition={{
             ease: "circOut",
           }}

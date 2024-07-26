@@ -1,3 +1,4 @@
-import Product from "./product/ProductPage";
+import Doll from "./product/DollPage";
+import DollDetail from "./product/DollDetailPage";
 
-export { Product };
+export { Doll, DollDetail };

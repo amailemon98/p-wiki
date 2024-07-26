@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/style/product/Product.css";
+import "../../assets/style/product/Doll.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import {
@@ -8,9 +8,9 @@ import {
   BasketShort,
   DollBox,
   Paging,
-} from "../../components/product";
+} from "../../components/product/doll";
 
-const ProductPage = () => {
+const DollPage = () => {
   return (
     <div>
       <Header />
@@ -20,11 +20,10 @@ const ProductPage = () => {
         <BasketShort />
         <Paging />
         <DollBox />
-        <Paging />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default ProductPage;
+export default DollPage;

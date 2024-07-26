@@ -59,14 +59,30 @@ main {
   top: 40%;
   right: 0;
 }
-.product_box {
+.doll_box {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
-.product_box * {
-  margin: 30px;
-  border: 1px solid black;
-}
-.paging_box {
+.doll_box .doll_item {
   text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #555;
+
+  padding: 14px;
+}
+.doll_box .doll_item:hover {
+  box-shadow: 1px 1px 4px 4px #999;
+}
+.doll_box img {
+  width: 100%;
+}
+.paging_box ul {
+  display: flex;
+  justify-content: flex-end;
+}
+.paging_box ul li a {
+  display: block;
+  padding: 10px;
 }
