@@ -6,6 +6,10 @@ module.exports = {
       palette : {
         primary : { main : 'FF6B6B'},
       },
+      colors :{
+        'p-blue' : '#1b53ba',
+        'p-red' : '#e3350d',
+      }
     },
   },
   plugins: [],
