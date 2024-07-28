@@ -1,4 +1,6 @@
-# p-wiki project
 
-# how to start?
-npm start
+# p-wiki project for Practice!
+
+# How can i start?
+
+npm install > npm start
