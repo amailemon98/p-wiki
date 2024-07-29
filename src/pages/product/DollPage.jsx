@@ -4,11 +4,11 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import {
   Search,
-  Menu,
   BasketShort,
   DollBox,
   Paging,
-} from "../../components/product/doll";
+  Menu,
+} from "../../components/product";
 
 const DollPage = () => {
   return (
