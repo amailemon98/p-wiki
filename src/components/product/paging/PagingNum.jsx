@@ -1,9 +1,6 @@
 import React from "react";
 
 const PagingNum = ({ pageNum, searchParams }) => {
-  pageNum.map((item) => {
-    console.log(item, +searchParams.get("nowPage") + 1);
-  });
   return (
     <ul>
       {pageNum.map((item) => (

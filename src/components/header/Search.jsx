@@ -28,7 +28,12 @@ const Search = () => {
           htmlFor="pdt_search"
           animate={
             focus
-              ? { y: -24, fontSize: "16px", color: "#444", fontWeight: "bold" }
+              ? {
+                  y: -24,
+                  fontSize: "16px",
+                  color: "#444",
+                  fontWeight: "bold",
+                }
               : {}
           }
           transition={{

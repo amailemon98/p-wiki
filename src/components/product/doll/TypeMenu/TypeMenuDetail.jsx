@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import style from "../../../assets/style/product/TypeMenu.module.css";
-const MenuDetail = ({ type, typeArr, setTypeArr }) => {
+import React, { useEffect, useState } from "react";
+import style from "../../../../assets/style/product/TypeMenu.module.css";
+const MenuDetail = ({ type, typeArr, dispatch }) => {
   const [check, setCheck] = useState(false);
-
   const checkTypeArr = () => {
     if (!check) {
-      setTypeArr([...typeArr, type.en]);
+      dispatch({ type: "typeAdd", payload: type.en });
     } else {
-      typeArr.pop();
-      setTypeArr(typeArr);
+      dispatch({ type: "typeSub", payload: type.en });
     }
   };
+
+  useEffect(() => {}, [check]);
 
   return (
     <li className={style.menu_font}>
@@ -29,13 +29,12 @@ const MenuDetail = ({ type, typeArr, setTypeArr }) => {
         id={type.id}
         value={check}
         onChange={(e) => {
-          checkTypeArr();
-          if (typeArr.length > 1) {
-            window.alert("타입은 두개까지 선택 가능합니다.");
-            typeArr.pop();
-            setTypeArr(typeArr);
+          if (typeArr.length >= 2 && !check) {
+            window.alert("타입은 2개까지만 선택 가능합니다.");
             return;
           }
+          checkTypeArr();
+          console.log(typeArr);
           setCheck(!check);
         }}
       />
