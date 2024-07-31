@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 const menuItems = [
     {
         name : 'p-wiki',
-        href : 'wiki',
+        href : '/wiki',
         subCategories : [
             {
                 title : "Login",
@@ -65,19 +65,19 @@ const Navbar = () => {
   return (
     <nav className='w-full relative'>
         {/* 1 depth */}
-        <div className='bg-p-red'>
-            <div className='w-10/12 m-auto flex justify-between text-cyan-50 py-3'>
+        <div className='bg-p-beige3'>
+            <div className='w-10/12 m-auto flex justify-between text-[#8d2424] text-xl py-3 border-b-black'>
                 <ul className='flex gap-10'>
                     {
                         menuItems.map((item, index) => (
                         <li key={item.name}
-                                    onMouseEnter={() => handleMouseEnter(index)}
-                                    onMouseLeave={() => handleMouseLeave(index)}
+                                    // onMouseEnter={() => handleMouseEnter(index)}
+                                    // onMouseLeave={() => handleMouseLeave(index)}
                         ><a href={item.href}>{item.name}</a></li>
                         ))
                     }
                 </ul>
-                <ul className='flex gap-10'>
+                <ul className='flex gap-3 md:gap-10'>
                     {
                         ['LOGIN', 'BOARD', 'SHOP', 'STORY', 'HELP'].map(item => <li key={item}><a href='#'>{item}</a></li>)
                     }

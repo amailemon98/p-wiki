@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
-const ContentBox = ({img, name}) => {
+const ContentBox = ({img, name, id}) => {
+  // console.log(img)
+  // console.log(name)
+  // console.log("this Id : ", id);
+  const styleShadow = {boxShadow : '2px 2px 7px black'};
+  const [ shadow, setShadow ] = useState(false);
+  
   return (
-    <div className='flex justify-center items-center'>
-        <div className='w-52 h-52 bg-green-400 flex flex-col justify-center items-center'>
-          <div className='w-[90%] h-[60%] bg-cyan-400 p-5 gap-1 flex justify-center items-center'>
-            {/* <img about={img}> */}
-              {img}
-            {/* </img> */}
+    <Link to={`/wiki/${id}`} >
+      <div className='flex justify-center items-center mb-5 mt-5 mr-5 ml-5 cursor-pointer'>
+          <div className='w-60 h-52 border-[3px] border-black flex flex-col justify-center items-center hover:border-p-beige3'
+              onMouseOver={() => {setShadow(true)}}
+              onMouseOut={() => {setShadow(false)}}
+              style={ shadow ? styleShadow : null }
+          >
+            <div className='w-full h-[65%] bg-newP-red p-5 gap-1 flex justify-center items-center'>
+              <img src={img} />
+            </div>
+            <div className='w-full h-[35%] bg-p-white p-5 flex justify-center items-center text-p-black text-xl'>{name}</div>
           </div>
-          <div className='w-[90%] h-[30%] bg-red-600 p-5 flex justify-center items-center'>{name}</div>
-        </div>
-    </div>
+      </div>
+    </Link>
   )
 }
 

@@ -4,7 +4,7 @@ import ContentBox from '../../components/content_box/ContentBox';
 
 const Home = () => {
 
-  const howMany = 8; 
+  const howMany = 12;
   const [ randomPoke, setRandomPoke ] = useState([])
   
   const loopFetcher = async () => {
@@ -15,48 +15,38 @@ const Home = () => {
           let my = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${pNum}`) 
             let data = await my.json()
             const myData =  {
+                id : data.id,
                 name : data.pokemon.name,
                 url : data.sprites.front_default
             }
             
-            console.log(myData);
+            console.log("myData : ", myData);
             result.push(myData);
             
         }
          setRandomPoke( ...randomPoke, result )
-         console.log(randomPoke);
+         console.log("randomPoke : ", randomPoke);
     }
  
-    
     useEffect( ()=>{
         loopFetcher();
     },[])
 
-
-
-
-
-
-
-
-
-
-
-
-  let name = "이름"
-  let img = "이미지"
+  // let name = "이름"
+  // let img = "이미지"
   
   return (
     <div>
-      <div>
-        <div className='grid grid-cols-4 grid-rows-4 gap-3'>
-        {
-          randomPoke.length >=1  && randomPoke.map(item => (
-            <ContentBox name={item.name} img={item.url} />
-          ))
-        }
+      <div className='flex flex-col justify-center items-center'>
+        <div className='grid grid-cols-2 grid-rows-8 gap-3 md:grid-cols-3 md:grid-rows-4 lg:grid-cols-4 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-3 mt-5 mb-16'>
+          {
+            randomPoke.length >=1  && randomPoke.map(item => (
+              <ContentBox name={item.name} img={item.url} id={item.id} />
+            ))
+          }
         </div>
       </div>
+      {/* <div className='absolute bottom-0 m-auto z-1'><button>MORE!</button></div> */}
     </div>
   )
 }

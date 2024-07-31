@@ -4,7 +4,6 @@ import Wiki from "./routes/wiki/Wiki";
 import styles from './App.module.css'
 import Navbar from "./components/navbar/Navbar";
 import PokeMain from "./components/pokeMain/PokeMain";
-import WikiDetail from "./routes/wiki/WikiDetail";
 
 function App() {
   return (
@@ -17,20 +16,18 @@ function App() {
         <Navbar />
       </header>
 
-      <body className="pt-[93px] w-full  flex justify-center">
-        <div className="w-[100%] lg:w-[80%] xl:w-[75%] ">
+      <body className="pt-[93px] w-full h-screen flex justify-center">
+        <div className="w-[100%] lg:w-[80%] xl:w-[75%] h-[1600px] md:h-[1120px] lg:h-[850px] ">
           <div className={styles.mainBody}>
           <Routes>
             <Route path="/" element={ <Home /> } />
             <Route path="/wiki" element={ <Wiki /> } />
-            <Route path="/wiki/:id" element={ <WikiDetail /> } />
           </Routes>
           </div>
         </div>
       </body>
 
-
-      <footer className="bg-p-beige3 fixed bottom-0 w-screen h-[50px]">footer</footer>
+      <footer className="bg-p-blue fixed bottom-0 w-screen h-[50px]">footer</footer>
       
     </div>
   );
