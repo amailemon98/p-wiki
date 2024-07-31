@@ -6,7 +6,7 @@ const Header = () => {
   const targetRef = useRef(null);
   const handleScroll = () => {
     if (window.scrollY > 0) {
-      targetRef.current.style.boxShadow = "1px 1px 3px #ddd";
+      targetRef.current.style.boxShadow = "0 1px 10px 0px rgba(0,0,0,0.3)";
     } else {
       targetRef.current.style.boxShadow = "none";
     }
