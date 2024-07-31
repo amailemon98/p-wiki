@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DollItem from "./DollItem";
 import { useSearchParams } from "react-router-dom";
 
-const DollBox = () => {
+const DollBox = ({ children }) => {
   const [products, setProduct] = useState([]);
   const [pendding, setPendding] = useState(false);
 
@@ -31,14 +31,17 @@ const DollBox = () => {
   }, [searchParams]);
 
   return (
-    <div className="doll_box">
-      {pendding ? (
-        products.map((item) => (
-          <DollItem key={item.poketmonName} product={item} />
-        ))
-      ) : (
-        <div>로딩중.....</div>
-      )}
+    <div className="product_content">
+      {children}
+      <div className="doll_box">
+        {pendding ? (
+          products.map((item) => (
+            <DollItem key={item.poketmonName} product={item} />
+          ))
+        ) : (
+          <div>로딩중.....</div>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import PagingNum from "./PagingNum";
 import PagingRemote from "./PagingRemote";
+import style from "../../../assets/style/product/Paging.module.css";
 
 const Paging = () => {
   const [pageData, setPageData] = useState();
@@ -38,12 +39,28 @@ const Paging = () => {
     };
     pagingHandle();
   }, [pageData, searchParams]);
-  console.log(pageNum);
+
+  useEffect(() => {
+    const setNowPageDate = () => {
+      if (!searchParams.get("nowPage")) {
+        searchParams.set("nowPage", 0);
+      }
+      if (!searchParams.get("nowBlock")) {
+        searchParams.set("nowBlock", 0);
+      }
+    };
+    setNowPageDate();
+  }, [searchParams]);
+
+  console.log(searchParams.get("nowPage"), searchParams.get("nowBlock"));
   return (
-    <div className="paging_box">
+    <div className={style.paging_box}>
       {pageData && (
-        <PagingRemote lastBlock={pageData?.lastBlock}>
-          <PagingNum pageNum={pageNum} />
+        <PagingRemote
+          lastBlock={pageData?.lastBlock}
+          searchParams={searchParams}
+        >
+          <PagingNum pageNum={pageNum} searchParams={searchParams} />
         </PagingRemote>
       )}
     </div>

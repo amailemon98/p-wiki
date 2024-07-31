@@ -4,10 +4,11 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import {
   Search,
-  BasketShort,
   DollBox,
   Paging,
-  Menu,
+  QuickMenu,
+  TypeMenu,
+  DollMenu,
 } from "../../components/product";
 
 const DollPage = () => {
@@ -16,10 +17,12 @@ const DollPage = () => {
       <Header />
       <main>
         <Search />
-        <Menu />
-        <BasketShort />
+        <TypeMenu />
+        <QuickMenu />
+        <DollBox>
+          <DollMenu />
+        </DollBox>
         <Paging />
-        <DollBox />
       </main>
       <Footer />
     </div>

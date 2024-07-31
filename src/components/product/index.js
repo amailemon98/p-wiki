@@ -1,8 +1,8 @@
-import DollBox from "./doll/DollBox";
 import Search from "./doll/Search";
-import BasketShort from "./doll/BasketShort";
-import Paging from "./doll/Paging";
+import TypeMenu from "./TypeMenu/Menu";
+import DollBox from "./doll/DollBox";
+import DollMenu from "./doll/dollMenu/DollMenu";
+import Paging from "./paging/Paging";
+import QuickMenu from "./quickMenu/QuickMenu";
 
-import Menu from "./TypeMenu/Menu";
-
-export { DollBox, Search, BasketShort, Paging, Menu };
+export { Search, TypeMenu, DollBox, DollMenu, Paging, QuickMenu };

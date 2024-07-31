@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import style from "../../../assets/style/product/Menu.module.css";
-const MenuDetail = ({ type, checkTwo, setCheckTwo }) => {
+import React, { useState } from "react";
+import style from "../../../assets/style/product/TypeMenu.module.css";
+const MenuDetail = ({ type, typeArr, setTypeArr }) => {
   const [check, setCheck] = useState(false);
 
-  const checkTwoHandle = () => {
+  const checkTypeArr = () => {
     if (!check) {
-      setCheckTwo([...checkTwo, "1"]);
+      setTypeArr([...typeArr, type.en]);
     } else {
-      checkTwo.pop();
-      setCheckTwo(checkTwo);
+      typeArr.pop();
+      setTypeArr(typeArr);
     }
   };
 
@@ -29,11 +29,11 @@ const MenuDetail = ({ type, checkTwo, setCheckTwo }) => {
         id={type.id}
         value={check}
         onChange={(e) => {
-          checkTwoHandle();
-          if (checkTwo.length > 1) {
+          checkTypeArr();
+          if (typeArr.length > 1) {
             window.alert("타입은 두개까지 선택 가능합니다.");
-            checkTwo.pop();
-            setCheckTwo(checkTwo);
+            typeArr.pop();
+            setTypeArr(typeArr);
             return;
           }
           setCheck(!check);

@@ -1,26 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const DollItem = ({ product }) => {
   const { productName, poketmonName, productPrice, productSize, productCount } =
     product;
-
+  const nevigate = useNavigate();
+  const [hover, setHover] = useState(true);
   return (
-    <div className="doll_item">
+    <div
+      className="doll_item"
+      onClick={() => nevigate(`/product/doll/${poketmonName}`)}
+    >
+      <div
+        onMouseOver={() => {
+          setHover(false);
+        }}
+        onMouseLeave={() => {
+          setHover(true);
+        }}
+        className="doll_img"
+        style={
+          hover
+            ? {
+                backgroundImage: `url(${process.env.PUBLIC_URL}/images/poketmonDolls/${poketmonName}1.jpg)`,
+              }
+            : {
+                backgroundImage: `url(${process.env.PUBLIC_URL}/images/poketmonDolls/${poketmonName}2.jpg)`,
+              }
+        }
+      ></div>
       <div>
-        <a href={`/product/doll/${poketmonName}`}>
-          <div>
-            <img
-              src={`${process.env.PUBLIC_URL}/images/poketmonDolls/${poketmonName}1.jpg`}
-              alt={poketmonName}
-            />
-          </div>
-          <div>{productName}</div>
-          <div>{productPrice.toLocaleString("ko-KR")}원</div>
-          <div>rating</div>
-        </a>
-      </div>
-      <div>
-        <button>장바구니 추가(장바구니 모달창)</button>
+        <div>{productName} 인형</div>
+        <div>rating</div>
+        <div className="price_font">
+          {productPrice.toLocaleString("ko-KR")}원
+        </div>
       </div>
     </div>
   );

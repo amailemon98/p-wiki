@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import MenuDetail from "./MenuDetail";
 import types from "../../../api/pokemonType.json";
-import style from "../../../assets/style/product/Menu.module.css";
+import style from "../../../assets/style/product/TypeMenu.module.css";
+import { motion } from "framer-motion";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+
 const Menu = () => {
   const [pokemonType, setPokemonType] = useState([]);
-  const [checkTwo, setCheckTwo] = useState([]);
-  console.log(checkTwo);
+  const [typeArr, setTypeArr] = useState([]);
+  const [down, setDown] = useState(false);
 
   useEffect(() => {
     // async function getType() {
@@ -18,15 +21,17 @@ const Menu = () => {
   }, []);
   return (
     <nav className={style.product_menu_box}>
-      <ul className={style.product_menu}>
+      <div className={style.down_menuBtn} onClick={() => setDown(!down)}>
+        {down ? <FaArrowUp /> : <FaArrowDown />}
+      </div>
+      <motion.ul
+        className={style.product_menu}
+        animate={down ? { height: 180 } : { height: 0 }}
+      >
         {pokemonType.map((type) => (
-          <MenuDetail
-            type={type}
-            checkTwo={checkTwo}
-            setCheckTwo={setCheckTwo}
-          />
+          <MenuDetail type={type} typeArr={typeArr} setTypeArr={setTypeArr} />
         ))}
-      </ul>
+      </motion.ul>
     </nav>
   );
 };

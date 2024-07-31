@@ -1,0 +1,10 @@
+.quick_menu {
+  width: 60px;
+  height: 140px;
+  position: fixed;
+  right: 60px;
+  bottom: 30px;
+}
+.quick_menu svg {
+  cursor: pointer;
+}
