@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react'
 // import axios from 'axios'
 import ContentBox from '../../components/content_box/ContentBox';
+import Loading from '../../components/loading/Loading';
 
 const Home = () => {
 
   const howMany = 12;
   const [ randomPoke, setRandomPoke ] = useState([])
+  const [ loading, setLoading ] = useState(false);
   
   const loopFetcher = async () => {
+
+        setLoading(true);
         
         let result = [];
         for(let a=1; a<=howMany ; a++)  {
@@ -26,11 +30,13 @@ const Home = () => {
         }
          setRandomPoke( ...randomPoke, result )
          console.log("randomPoke : ", randomPoke);
+
+         setLoading(false);
     }
  
     useEffect( ()=>{
         loopFetcher();
-    },[])
+    }, [])
 
   // let name = "이름"
   // let img = "이미지"
@@ -38,13 +44,16 @@ const Home = () => {
   return (
     <div>
       <div className='flex flex-col justify-center items-center'>
-        <div className='grid grid-cols-2 grid-rows-8 gap-3 md:grid-cols-3 md:grid-rows-4 lg:grid-cols-4 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-3 mt-5 mb-16'>
-          {
-            randomPoke.length >=1  && randomPoke.map(item => (
-              <ContentBox name={item.name} img={item.url} id={item.id} />
-            ))
-          }
-        </div>
+        {
+          loading ? ( <Loading /> )
+          : (<div className='grid grid-cols-2 grid-rows-8 gap-3 md:grid-cols-3 md:grid-rows-4 lg:grid-cols-4 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-3 mt-5 mb-16'>
+              {
+                randomPoke.length >=1  && randomPoke.map(item => (
+                  <ContentBox name={item.name} img={item.url} id={item.id} />
+                ))
+              }
+            </div>)
+        }
       </div>
       {/* <div className='absolute bottom-0 m-auto z-1'><button>MORE!</button></div> */}
     </div>
