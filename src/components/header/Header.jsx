@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "../../assets/style/header/Header.css";
-import { Logo, Search, QuickMenu } from ".";
+import { Logo, Search, Lnb, TypeMenu } from ".";
 
 const Header = () => {
   const targetRef = useRef(null);
@@ -24,11 +24,14 @@ const Header = () => {
     };
   }, []);
   return (
-    <header>
-      <div className="product_header" ref={targetRef}>
+    <header ref={targetRef}>
+      <div className="product_header">
         <Logo />
         <Search />
-        <QuickMenu />
+        <Lnb />
+      </div>
+      <div>
+        <TypeMenu />
       </div>
     </header>
   );

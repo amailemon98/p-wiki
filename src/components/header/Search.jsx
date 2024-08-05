@@ -7,7 +7,7 @@ const Search = () => {
   const [searchVal, setSearchVal] = useState("");
   return (
     <div className="product_search_box">
-      <div className="product_input_box">
+      <div className="product_input_box" title="검색어를 입력하세요!!">
         <input
           type="text"
           id="pdt_search"
@@ -29,18 +29,23 @@ const Search = () => {
           animate={
             focus
               ? {
-                  y: -24,
-                  fontSize: "16px",
-                  color: "#444",
-                  fontWeight: "bold",
+                  y: -28,
+                  fontWeight: 700,
+                  opacity: 1,
+                  fontSize: "20px",
                 }
               : {}
           }
           transition={{
-            ease: "circOut",
+            ease: "linear",
+            duration: 0.1,
           }}
         >
           search
+          <img
+            src={`${process.env.PUBLIC_URL}/images/header/pikachu_happy_icon.svg`}
+            alt=""
+          />
         </motion.label>
       </div>
       <button>

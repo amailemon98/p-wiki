@@ -1,39 +1,43 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DollHeart from "./DollHeart";
 
 const DollItem = ({ product }) => {
-  const { productName, poketmonName, productPrice, productSize, productCount } =
+  const { productName, pokemonName, productPrice, productSize, productCount } =
     product;
   const nevigate = useNavigate();
   const [hover, setHover] = useState(true);
   return (
-    <div
-      className="doll_item"
-      onClick={() => nevigate(`/product/doll/${poketmonName}`)}
-    >
+    <div className="doll_item">
+      <DollHeart />
       <div
-        onMouseOver={() => {
-          setHover(false);
-        }}
-        onMouseLeave={() => {
-          setHover(true);
-        }}
-        className="doll_img"
-        style={
-          hover
-            ? {
-                backgroundImage: `url(${process.env.PUBLIC_URL}/images/poketmonDolls/${poketmonName}1.jpg)`,
-              }
-            : {
-                backgroundImage: `url(${process.env.PUBLIC_URL}/images/poketmonDolls/${poketmonName}2.jpg)`,
-              }
-        }
-      ></div>
-      <div>
-        <div>{productName} 인형</div>
-        <div>rating</div>
-        <div className="price_font">
-          {productPrice.toLocaleString("ko-KR")}원
+        className="content"
+        onClick={() => nevigate(`/product/doll/${pokemonName}`)}
+      >
+        <div
+          onMouseOver={() => {
+            setHover(false);
+          }}
+          onMouseLeave={() => {
+            setHover(true);
+          }}
+          className="doll_img"
+          style={
+            hover
+              ? {
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/images/pokemonDolls/${pokemonName}1.jpg)`,
+                }
+              : {
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/images/pokemonDolls/${pokemonName}2.jpg)`,
+                }
+          }
+        ></div>
+        <div>
+          <div>{productName} 인형</div>
+          <div>rating</div>
+          <div className="price_font">
+            {productPrice.toLocaleString("ko-KR")}원
+          </div>
         </div>
       </div>
     </div>
