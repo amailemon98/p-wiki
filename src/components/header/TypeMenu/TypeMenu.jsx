@@ -59,7 +59,7 @@ const Menu = () => {
       </motion.div>
       <motion.ul
         className={style.product_menu}
-        animate={down ? { height: 180, marginBottom: 20 } : { height: 0 }}
+        animate={down ? { height: 200, paddingBottom: 20 } : { height: 0 }}
       >
         {pokemonType.map((type) => (
           <MenuDetail

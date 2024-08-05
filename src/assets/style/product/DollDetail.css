@@ -9,14 +9,21 @@
 .dollDetail_box .info_box {
   width: 40%;
 }
-.img_box .sub,
+.img_box .sub_box,
 .img_box .main {
   aspect-ratio: 1;
   display: inline-block;
   background-size: cover;
 }
-.img_box .sub {
+.img_box .sub_box {
   width: 20%;
+  height: 100%;
+}
+.sub_box .sub {
+  width: 100%;
+  aspect-ratio: 1;
+
+  background-size: cover;
   border: 1px solid #ddd;
 }
 .img_box .main {

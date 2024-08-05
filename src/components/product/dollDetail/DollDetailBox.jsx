@@ -14,12 +14,20 @@ const DollDetailBox = () => {
         <div className="dollDetail_container">
           <div className="dollDetail_box">
             <div className="img_box">
-              <div
-                className="sub"
-                style={{
-                  backgroundImage: `url(${process.env.PUBLIC_URL}/images/pokemonDolls/${pokemonName}2.jpg)`,
-                }}
-              ></div>
+              <div className="sub_box">
+                <div
+                  className="sub"
+                  style={{
+                    backgroundImage: `url(${process.env.PUBLIC_URL}/images/pokemonDolls/${pokemonName}1.jpg)`,
+                  }}
+                ></div>
+                <div
+                  className="sub"
+                  style={{
+                    backgroundImage: `url(${process.env.PUBLIC_URL}/images/pokemonDolls/${pokemonName}2.jpg)`,
+                  }}
+                ></div>
+              </div>
               <div
                 className="main"
                 style={{
