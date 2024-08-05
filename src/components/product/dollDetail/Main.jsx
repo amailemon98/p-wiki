@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductDetailProvider } from "../../../contexts/ProductDetailContext";
-import DollDetailBox from "./DollDetailBox";
+import DollDetailBox from "./dollDetailMain/DollDetailBox";
 
 const Main = () => {
   return (

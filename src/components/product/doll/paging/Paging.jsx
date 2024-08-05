@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import PagingNum from "./PagingNum";
-import PagingRemote from "./PagingRemote";
-import style from "../../../../assets/style/product/Paging.module.css";
+import style from "../../../../assets/style/product/doll/Paging.module.css";
 import { useProduct } from "../../../../contexts/ProductContext";
 import pageJson from "../../../../api/pageData.json";
+import PagingNum from "./PagingNum";
+import PagingRemote from "./PagingRemote";
 const Paging = () => {
   const [pageData, setPageData] = useState(pageJson);
   const [pageNum, setPageNum] = useState([]);

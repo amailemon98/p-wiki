@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import style from "../../../../assets/style/product/Paging.module.css";
+import style from "../../../../assets/style/product/doll/Paging.module.css";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
 const PagingRemote = ({ children, lastBlock, searchParams }) => {

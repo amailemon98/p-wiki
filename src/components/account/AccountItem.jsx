@@ -5,13 +5,13 @@ const AccountItem = ({ user }) => {
   const [focus, setFocus] = useState(false);
   return (
     <Fragment>
-      <div className="Account_item" title={`${user.name}을 입력하세요!`}>
+      <div className="Account_item" title={`${user.ko}을 입력하세요!`}>
         <motion.input
           animate={
             focus ? { border: "1px solid #000" } : { border: "1px solid #ddd" }
           }
           type={user.type}
-          placeholder={`${user.name}`}
+          placeholder={`${user.ko}`}
           readOnly={user.readOnly}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}

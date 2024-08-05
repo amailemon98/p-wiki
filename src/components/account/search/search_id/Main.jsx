@@ -14,7 +14,7 @@ const Main = () => {
     <SearchIdProvider>
       <div className="search_container">
         <SearchIdBox />
-        <SubMenuBox subMenu={subMenu} />
+        <SubMenuBox key={subMenu.id} subMenu={subMenu} />
       </div>
     </SearchIdProvider>
   );

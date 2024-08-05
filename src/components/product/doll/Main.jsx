@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../assets/style/product/Doll.css";
+import "../../../assets/style/product/doll/Doll.css";
 import { DollBox, DollMenu, Paging } from ".";
 import { ProductProvider } from "../../../contexts/ProductContext";
 

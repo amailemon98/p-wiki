@@ -5,28 +5,32 @@ const SearchIdContext = createContext();
 const SearchIdProvider = ({ children }) => {
   const searchEmail = [
     {
-      id: "userName",
-      name: "이름",
+      id: 1,
+      en: "userName",
+      ko: "이름",
       type: "text",
       userRef: useRef(),
     },
     {
-      id: "userEmail",
-      name: "이메일",
+      id: 2,
+      en: "userEmail",
+      ko: "이메일",
       type: "text",
       userRef: useRef(),
     },
   ];
   const searchPhone = [
     {
-      id: "userName",
-      name: "이름",
+      id: 1,
+      en: "userName",
+      ko: "이름",
       type: "text",
       userRef: useRef(),
     },
     {
-      id: "userPhone",
-      name: "휴대전화번호",
+      id: 2,
+      en: "userPhone",
+      ko: "휴대전화번호",
       type: "text",
       userRef: useRef(),
     },

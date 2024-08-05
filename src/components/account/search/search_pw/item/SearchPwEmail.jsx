@@ -7,7 +7,7 @@ const SearchIdEmail = () => {
   return (
     <div>
       {searchEmail.map((user) => (
-        <AccountItem user={user} />
+        <AccountItem key={user.id} user={user} />
       ))}
     </div>
   );

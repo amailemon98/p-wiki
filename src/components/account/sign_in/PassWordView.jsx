@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
 
 import { motion } from "framer-motion";
-const PassWordView = ({ view, setView, setVal }) => {
+const PassWordView = ({ view, setView, setVal, setFocus }) => {
   return (
     <div className="password_fcnBox">
       <motion.div
@@ -17,6 +17,7 @@ const PassWordView = ({ view, setView, setVal }) => {
         className="password_deleteBtn"
         onMouseDown={() => {
           setVal("");
+          setFocus(false);
         }}
       >
         <TiDelete />

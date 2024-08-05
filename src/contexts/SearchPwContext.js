@@ -5,40 +5,46 @@ const SearchPwContext = createContext();
 const SearchPwProvider = ({ children }) => {
   const searchEmail = [
     {
-      id: "userId",
-      name: "아이디",
+      id: 1,
+      en: "userId",
+      ko: "아이디",
       type: "text",
       userRef: useRef(),
     },
     {
-      id: "userName",
-      name: "이름",
+      id: 2,
+      en: "userName",
+      ko: "이름",
       type: "text",
       userRef: useRef(),
     },
     {
-      id: "userEmail",
-      name: "이메일",
+      id: 3,
+      en: "userEmail",
+      ko: "이메일",
       type: "text",
       userRef: useRef(),
     },
   ];
   const searchPhone = [
     {
-      id: "userId",
-      name: "아이디",
+      id: 1,
+      en: "userId",
+      ko: "아이디",
       type: "text",
       userRef: useRef(),
     },
     {
-      id: "userName",
-      name: "이름",
+      id: 2,
+      en: "userName",
+      ko: "이름",
       type: "text",
       userRef: useRef(),
     },
     {
-      id: "userPhone",
-      name: "휴대전화번호",
+      id: 3,
+      en: "userPhone",
+      ko: "휴대전화번호",
       type: "text",
       userRef: useRef(),
     },

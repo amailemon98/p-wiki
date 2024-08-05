@@ -32,13 +32,14 @@ const LoginItem = ({ user }) => {
         }}
         onChange={(e) => setVal(e.target.value)}
         value={val}
+        autoComplete={user.type === "password" ? "off" : "on"}
       />
       {user.type === "password" && (
         <PassWordView
           view={view}
           setView={setView}
-          val={val}
           setVal={setVal}
+          setFocus={setFocus}
           userRef={user.ref}
         />
       )}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DollHeart from "./DollHeart";
+import StarRating from "../starRating/StarRating";
 
 const DollItem = ({ product }) => {
   const { productName, pokemonName, productPrice, productSize, productCount } =
@@ -34,7 +35,9 @@ const DollItem = ({ product }) => {
         ></div>
         <div>
           <div>{productName} 인형</div>
-          <div>rating</div>
+          <div>
+            <StarRating />
+          </div>
           <div className="price_font">
             {productPrice.toLocaleString("ko-KR")}원
           </div>

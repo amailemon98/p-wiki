@@ -1,5 +1,6 @@
 .search_container {
-  width: 700px;
+  width: 60%;
+  max-width: 550px;
   margin: 30px auto;
   padding: 30px;
 }

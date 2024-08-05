@@ -7,7 +7,7 @@ const SearchIdPhone = () => {
   return (
     <div>
       {searchPhone.map((user) => (
-        <AccountItem user={user} />
+        <AccountItem key={user.id} user={user} />
       ))}
     </div>
   );

@@ -30,7 +30,7 @@ const ProductDetailProvider = ({ children }) => {
       setDoll(dollData.find((doll) => doll.pokemonName === params.pokemonName));
     };
     getDoll();
-  }, []);
+  }, [params]);
   return (
     <productDetailContext.Provider value={{ doll, isPendding }}>
       {children}
