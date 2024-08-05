@@ -17,8 +17,8 @@ function App() {
         <Navbar />
       </header>
 
-      <body className="pt-[93px] w-full  flex justify-center">
-        <div className="w-[100%] lg:w-[80%] xl:w-[75%] ">
+      <body className="pt-[93px] w-full flex justify-center">
+        <div className="w-[100%] lg:w-[80%] xl:w-[75%]">
           <div className={styles.mainBody}>
           <Routes>
             <Route path="/" element={ <Home /> } />

@@ -15,6 +15,9 @@ module.exports = {
         'p-beige2' : '#D8CF8E',
         'p-beige3' : '#C9BB62',
         'p-white' : '#ececec',
+      },
+      backgroundImage: {
+        'ball-pattern' : "url('./images/ball.png')"
       }
     },
   },
