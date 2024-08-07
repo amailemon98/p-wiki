@@ -1,15 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import InputBox from '../../components/inputBox/InputBox';
 
 const Wiki = () => {
 
-  // const { myParameter } = useParams();
+  const [ inputSave, setInputSave ] = useState("");
+  const [ inputSuggest, setInputSuggest ] = useState([]);
+  // const [ pokData, setPokData ] = useState([]);
 
-  //   console.log(myParameter);
+
+  useEffect(() => {
+    const fetchSuggest = async () => {
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputSave}`);
+      const data = await res.json();
+      setInputSuggest(data);
+
+      // setPokData(data);
+      // console.log(data);
+      // console.log(pokData);
+      // console.log(pokData.sprites.front_default);
+      // console.log(pokData.name);
+      // console.log("inputSuggest", inputSuggest.sprites.front_default);
+    }
+
+    if( inputSave ){
+      fetchSuggest();
+    }
+    else if( !inputSave ){
+      setInputSuggest([]); // 초기화
+    }
+  }, [inputSave])
+
+  const handleInputChange = (ev) => {
+    setInputSave(ev.target.value);
+  }
 
   return (
-    <div>
-      Add Wiki here.
+    <div className='h-[calc(100vh-93px)] flex justify-center'>
+      <div className='mt-10'>
+        <input className='w-[500px] h-10 rounded-t-md text-p-white placeholder-p-white bg-p-black text-center text-lg' 
+               type='text' 
+               placeholder='도감번호를 입력해 주세요.'
+               value={inputSave}
+               onChange={(ev) => handleInputChange(ev)}
+        >
+        </input>
+        {
+          inputSave &&
+          //  inputSuggest.sprites.front_default &&
+          (<InputBox
+            // img={inputSuggest.sprites.front_default}
+            name={inputSuggest.name} 
+            id={inputSuggest.id}
+          />)
+        }
+      </div>
     </div>
   )
 }
