@@ -10,7 +10,7 @@ const DollItem = ({ product }) => {
   const [hover, setHover] = useState(true);
   return (
     <div className="doll_item">
-      <DollHeart />
+      <DollHeart product={product} />
       <div
         className="content"
         onClick={() => nevigate(`/product/doll/${pokemonName}`)}
@@ -35,7 +35,7 @@ const DollItem = ({ product }) => {
         ></div>
         <div>
           <div>{productName} 인형</div>
-          <div>
+          <div className="starRating_box">
             <StarRating />
           </div>
           <div className="price_font">

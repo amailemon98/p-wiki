@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../../assets/style/product/DollDetailTab.css";
+import "../../../../assets/style/product/dollDetail/DollDetailTab.css";
 import Description from "./Description";
 import ReviewBox from "./ReviewBox";
 import TabBtn from "./TabBtn";

@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import style from "../../../../assets/style/product/doll/Paging.module.css";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
-const PagingRemote = ({ children, lastBlock, searchParams }) => {
+const PagingRemote = ({ children, pageJson, searchParams }) => {
   const nevigate = useNavigate();
-
   return (
     <Fragment>
       {
@@ -13,11 +12,21 @@ const PagingRemote = ({ children, lastBlock, searchParams }) => {
           {searchParams.get("nowBlock") > 0 && (
             <GrFormPrevious
               onClick={() => {
-                nevigate(
-                  `/product/doll?nowPage=${searchParams.get(
-                    "nowPage"
-                  )}&nowBlock=${+searchParams.get("nowBlock") - 1}`
-                );
+                if (searchParams.get("q")) {
+                  nevigate(
+                    `/product/doll?q=${searchParams.get(
+                      "q"
+                    )}&nowPage=${searchParams.get("nowPage")}&nowBlock=${
+                      searchParams.get("nowBlock") - 1
+                    }`
+                  );
+                } else {
+                  nevigate(
+                    `/product/doll?nowPage=${searchParams.get(
+                      "nowPage"
+                    )}&nowBlock=${searchParams.get("nowBlock") - 1}`
+                  );
+                }
               }}
             />
           )}
@@ -26,14 +35,25 @@ const PagingRemote = ({ children, lastBlock, searchParams }) => {
       {children}
       {
         <div className={style.next}>
-          {searchParams.get("nowBlock") < lastBlock && (
+          {+searchParams.get("nowBlock") + 1 <
+            pageJson.lastPage / pageJson.blockPerPage && (
             <GrFormNext
               onClick={() => {
-                nevigate(
-                  `/product/doll?nowPage=${searchParams.get(
-                    "nowPage"
-                  )}&nowBlock=${+searchParams.get("nowBlock") + 1}`
-                );
+                if (searchParams.get("q")) {
+                  nevigate(
+                    `/product/doll?q=${searchParams.get(
+                      "q"
+                    )}&nowPage=${searchParams.get("nowPage")}&nowBlock=${
+                      +searchParams.get("nowBlock") + 1
+                    }`
+                  );
+                } else {
+                  nevigate(
+                    `/product/doll?nowPage=${searchParams.get(
+                      "nowPage"
+                    )}&nowBlock=${+searchParams.get("nowBlock") + 1}`
+                  );
+                }
               }}
             />
           )}

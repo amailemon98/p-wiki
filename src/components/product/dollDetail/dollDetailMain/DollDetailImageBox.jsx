@@ -21,6 +21,7 @@ const DollDetailImageBox = ({ pokemonName }) => {
           <SubImageItem
             key={image.id}
             path={image.path}
+            imgPath={imgPath}
             setImgPath={setImgPath}
           />
         ))}

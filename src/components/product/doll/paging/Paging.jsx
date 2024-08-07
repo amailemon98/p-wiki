@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import style from "../../../../assets/style/product/doll/Paging.module.css";
 import { useProduct } from "../../../../contexts/ProductContext";
-import pageJson from "../../../../api/pageData.json";
 import PagingNum from "./PagingNum";
 import PagingRemote from "./PagingRemote";
-const Paging = () => {
-  const [pageData, setPageData] = useState(pageJson);
+const Paging = ({ pageJson }) => {
+  // const [pageData, setPageData] = useState(pageJson);
   const [pageNum, setPageNum] = useState([]);
   const { searchParams } = useProduct();
 
@@ -28,8 +27,8 @@ const Paging = () => {
   useEffect(() => {
     const pagingHandle = () => {
       let arr = [];
-      if (pageData) {
-        const { blockPerPage, lastPage } = pageData;
+      if (pageJson) {
+        const { blockPerPage, lastPage } = pageJson;
         const first = searchParams.get("nowBlock") * blockPerPage;
         const last =
           first + blockPerPage <= lastPage ? first + blockPerPage : lastPage;
@@ -40,15 +39,13 @@ const Paging = () => {
       }
     };
     pagingHandle();
-  }, [pageData, searchParams]);
+    console.log("리로드");
+  }, [searchParams, pageJson.lastBlock, pageJson.lastPage]);
 
   return (
     <div className={style.paging_box}>
-      {pageData && (
-        <PagingRemote
-          lastBlock={pageData?.lastBlock}
-          searchParams={searchParams}
-        >
+      {pageJson && (
+        <PagingRemote pageJson={pageJson} searchParams={searchParams}>
           <PagingNum pageNum={pageNum} searchParams={searchParams} />
         </PagingRemote>
       )}

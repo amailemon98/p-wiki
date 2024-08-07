@@ -55,6 +55,10 @@ main {
 .doll_item .content {
   padding: 14px;
 }
+.doll_item .content .starRating_box {
+  display: flex;
+  justify-content: center;
+}
 .doll_item:hover {
   box-shadow: 1px 1px 4px 4px #ddd;
 }

@@ -20,13 +20,23 @@ const PagingNum = ({ pageNum, searchParams }) => {
           }
           onClick={scrollTop}
         >
-          <Link
-            to={`http://localhost:3000/product/doll?nowPage=${item}&nowBlock=${searchParams.get(
-              "nowBlock"
-            )}`}
-          >
-            {item + 1}
-          </Link>
+          {searchParams.get("q") ? (
+            <Link
+              to={`http://localhost:3000/product/doll?q=${searchParams.get(
+                "q"
+              )}&nowPage=${item}&nowBlock=${searchParams.get("nowBlock")}`}
+            >
+              {item + 1}
+            </Link>
+          ) : (
+            <Link
+              to={`http://localhost:3000/product/doll?nowPage=${item}&nowBlock=${searchParams.get(
+                "nowBlock"
+              )}`}
+            >
+              {item + 1}
+            </Link>
+          )}
         </li>
       ))}
     </ul>

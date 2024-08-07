@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 
-const DollHeart = () => {
+const DollHeart = ({ product }) => {
   const [like, setLike] = useState(false);
+  useEffect(() => {
+    const prevLikeList = localStorage.getItem("likeList");
+    const likeList = {
+      ...JSON.parse(prevLikeList),
+      id: product.productId,
+    };
+    if (like) {
+      localStorage.setItem("likeList", JSON.stringify(likeList));
+    } else {
+    }
+  }, [like]);
   return (
     <div
       className="heart"

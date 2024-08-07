@@ -1,9 +1,8 @@
 import React from "react";
-import dollData from "../../../../api/dollData.json";
-const DollMenu = () => {
+const DollMenu = ({ products }) => {
   return (
     <div className="doll_menu">
-      <div>{`총 ${dollData.length}개의 상품`}</div>
+      <div>{`총 ${products.length}개의 상품`}</div>
       <ul className="product_sort">
         <li>낮은가격순</li>
         <li>높은가격순</li>

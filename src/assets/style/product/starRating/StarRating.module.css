@@ -1,6 +1,5 @@
 .star_box {
   display: flex;
-  justify-content: center;
 }
 .star_box img svg {
   fill: white;

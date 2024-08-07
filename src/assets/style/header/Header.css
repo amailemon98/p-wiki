@@ -55,8 +55,11 @@ header {
 .product_input_box img {
   height: 30px;
 }
-.product_search_box button {
+.product_btn_box {
   width: 10%;
+}
+.product_btn_box button {
+  width: 100%;
   height: 100%;
 
   border: none;
@@ -65,7 +68,7 @@ header {
 
   cursor: pointer;
 }
-.product_search_box button svg {
+.product_btn_box button svg {
   width: 50%;
   height: 50%;
   transition: 1s;

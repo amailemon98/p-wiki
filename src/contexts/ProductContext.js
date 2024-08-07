@@ -4,7 +4,7 @@ import dollData from "../api/dollData.json";
 const productContext = createContext(null);
 
 const ProductProvider = ({ children }) => {
-  const [products, setProduct] = useState(dollData);
+  const [products, setProduct] = useState([]);
   const [pendding, setPendding] = useState(true);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,15 +38,17 @@ const ProductProvider = ({ children }) => {
     //   }
     // }
     const getData = () => {
-      let arr = [];
-      for (let i = 0; i < 20; i++) {
-        if (20 * searchParams.get("nowPage") + i >= dollData.length) {
-          break;
-        }
-        let index = 20 * searchParams.get("nowPage") + i;
-        arr.push(dollData[index]);
+      let data = [];
+      if (searchParams.get("q")) {
+        dollData.map((doll) => {
+          if (doll.productName.indexOf(searchParams.get("q")) !== -1) {
+            data.push(doll);
+          }
+        });
+      } else {
+        data = dollData;
       }
-      setProduct(arr);
+      setProduct(data);
     };
     getData();
   }, [searchParams]);
