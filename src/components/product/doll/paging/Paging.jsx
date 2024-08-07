@@ -39,14 +39,15 @@ const Paging = ({ pageJson }) => {
       }
     };
     pagingHandle();
-    console.log("리로드");
   }, [searchParams, pageJson.lastBlock, pageJson.lastPage]);
+
+  useEffect(() => {}, [searchParams]);
 
   return (
     <div className={style.paging_box}>
       {pageJson && (
-        <PagingRemote pageJson={pageJson} searchParams={searchParams}>
-          <PagingNum pageNum={pageNum} searchParams={searchParams} />
+        <PagingRemote pageJson={pageJson}>
+          <PagingNum pageNum={pageNum} />
         </PagingRemote>
       )}
     </div>

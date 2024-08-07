@@ -16,7 +16,7 @@ const DollBox = () => {
     blockPerPage: 2,
     lastBlock: Math.floor(Math.ceil(products.length / 20) / 2),
   };
-  console.log(products);
+
   useEffect(() => {
     let arr = [];
     for (let i = 0; i < pageJson.pagePerProduct; i++) {
@@ -30,7 +30,6 @@ const DollBox = () => {
       arr.push(products[index]);
     }
     SetViewProducts(arr);
-    console.log("products바뀜");
   }, [products, searchParams]);
 
   return (
@@ -43,7 +42,7 @@ const DollBox = () => {
               <DollItem key={item.pokemonName} product={item} />
             ))
           ) : (
-            <div>상품을 찾을수 업습니다</div>
+            <div>상품을 찾을수 없습니다</div>
           )
         ) : (
           <div>로딩중.....</div>

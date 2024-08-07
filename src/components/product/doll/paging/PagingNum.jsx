@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import PagingNumItem from "./PagingNumItem";
+import { useProduct } from "../../../../contexts/ProductContext";
 
-const PagingNum = ({ pageNum, searchParams }) => {
+const PagingNum = ({ pageNum }) => {
+  const { searchParams } = useProduct();
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -10,35 +12,21 @@ const PagingNum = ({ pageNum, searchParams }) => {
   };
   return (
     <ul>
-      {pageNum.map((item) => (
-        <li
-          key={item}
-          style={
-            item === +searchParams.get("nowPage")
-              ? { fontWeight: "bold" }
-              : { fontWeight: "normal" }
-          }
-          onClick={scrollTop}
-        >
-          {searchParams.get("q") ? (
-            <Link
-              to={`http://localhost:3000/product/doll?q=${searchParams.get(
-                "q"
-              )}&nowPage=${item}&nowBlock=${searchParams.get("nowBlock")}`}
-            >
-              {item + 1}
-            </Link>
-          ) : (
-            <Link
-              to={`http://localhost:3000/product/doll?nowPage=${item}&nowBlock=${searchParams.get(
-                "nowBlock"
-              )}`}
-            >
-              {item + 1}
-            </Link>
-          )}
-        </li>
-      ))}
+      {pageNum.map((item) => {
+        return (
+          <li
+            key={item}
+            style={
+              item === +searchParams.get("nowPage")
+                ? { fontWeight: "bold" }
+                : { fontWeight: "normal" }
+            }
+            onClick={scrollTop}
+          >
+            <PagingNumItem num={item} />
+          </li>
+        );
+      })}
     </ul>
   );
 };

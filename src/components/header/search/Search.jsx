@@ -22,7 +22,6 @@ const Search = () => {
           nevigate(`product/doll?q=${searchVal}`);
         } else {
           alert("검색어를 입력하세요");
-          nevigate("/product/doll");
           inputRef.current.focus();
         }
       }}
