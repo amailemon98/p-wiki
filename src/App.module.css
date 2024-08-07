@@ -1,0 +1,20 @@
+body{
+    background: #424242 url(../src/images/bg_body.png);
+}
+
+.mainBody{
+    background: #ececec url(../src/images/bg_cont.png);
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.titleImg{
+    background-image: url(./images/main_logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 45px;
+    width: 79px;
+}
