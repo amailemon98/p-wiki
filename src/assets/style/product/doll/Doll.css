@@ -27,6 +27,10 @@ main {
 .doll_menu .product_sort li:last-of-type {
   border: none;
 }
+.product_sort li:hover {
+  color: #444;
+}
+
 .doll_box {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

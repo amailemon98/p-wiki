@@ -16,6 +16,7 @@ const DollBox = () => {
     blockPerPage: 2,
     lastBlock: Math.floor(Math.ceil(products.length / 20) / 2),
   };
+  console.log(products);
   useEffect(() => {
     let arr = [];
     for (let i = 0; i < pageJson.pagePerProduct; i++) {
@@ -29,11 +30,12 @@ const DollBox = () => {
       arr.push(products[index]);
     }
     SetViewProducts(arr);
+    console.log("products바뀜");
   }, [products, searchParams]);
 
   return (
     <div className="product_content">
-      <DollMenu products={products} />
+      <DollMenu SetViewProducts={SetViewProducts} />
       <div className="doll_box">
         {pendding ? (
           viewProducts.length ? (
