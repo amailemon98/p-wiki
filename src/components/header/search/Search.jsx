@@ -1,25 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import SearchBtn from "./SearchBtn";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useAll } from "../../../contexts/AllContext";
 
 const Search = () => {
-  const [serchParams, setSearchParams] = useSearchParams();
+  const { dispatch } = useAll();
   const [focus, setFocus] = useState(false);
   const [searchVal, setSearchVal] = useState("");
-  const nevigate = useNavigate();
   const inputRef = useRef();
 
-  useEffect(() => {
-    if (serchParams.get("q")) setSearchVal(serchParams.get("q"));
-  }, [serchParams]);
   return (
     <form
       className="product_search_box"
       onSubmit={(e) => {
         e.preventDefault();
         if (searchVal.length) {
-          nevigate(`product/doll?q=${searchVal}`);
+          dispatch({ type: "search", payload: searchVal });
         } else {
           alert("검색어를 입력하세요");
           inputRef.current.focus();

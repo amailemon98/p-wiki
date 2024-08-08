@@ -3,10 +3,10 @@ import style from "../../../../assets/style/product/doll/Paging.module.css";
 import { useProduct } from "../../../../contexts/ProductContext";
 import PagingNum from "./PagingNum";
 import PagingRemote from "./PagingRemote";
-const Paging = ({ pageJson }) => {
+const Paging = () => {
   // const [pageData, setPageData] = useState(pageJson);
   const [pageNum, setPageNum] = useState([]);
-  const { searchParams } = useProduct();
+  const { searchParams, pageJson } = useProduct();
 
   // spring boot
   // useEffect(() => {
@@ -40,8 +40,6 @@ const Paging = ({ pageJson }) => {
     };
     pagingHandle();
   }, [searchParams, pageJson.lastBlock, pageJson.lastPage]);
-
-  useEffect(() => {}, [searchParams]);
 
   return (
     <div className={style.paging_box}>

@@ -5,36 +5,11 @@ import Paging from "./paging/Paging";
 import { useProduct } from "../../../contexts/ProductContext";
 
 const DollBox = () => {
-  const { products, pendding, searchParams } = useProduct();
-  const [viewProducts, SetViewProducts] = useState([]);
-  // lastPage: Math.ceil(products.length / pagePerProduct)
-  // lastBlock: Math.floor(lastPage / blockPerPage)
-  const pageJson = {
-    totalProduct: products.length,
-    pagePerProduct: 20,
-    lastPage: Math.ceil(products.length / 20),
-    blockPerPage: 2,
-    lastBlock: Math.floor(Math.ceil(products.length / 20) / 2),
-  };
-
-  useEffect(() => {
-    let arr = [];
-    for (let i = 0; i < pageJson.pagePerProduct; i++) {
-      if (
-        pageJson.pagePerProduct * searchParams.get("nowPage") + i >=
-        products.length
-      ) {
-        break;
-      }
-      let index = pageJson.pagePerProduct * searchParams.get("nowPage") + i;
-      arr.push(products[index]);
-    }
-    SetViewProducts(arr);
-  }, [products, searchParams]);
+  const { pendding, viewProducts } = useProduct();
 
   return (
     <div className="product_content">
-      <DollMenu SetViewProducts={SetViewProducts} />
+      <DollMenu />
       <div className="doll_box">
         {pendding ? (
           viewProducts.length ? (
@@ -48,7 +23,7 @@ const DollBox = () => {
           <div>로딩중.....</div>
         )}
       </div>
-      <Paging pageJson={pageJson} />
+      <Paging />
     </div>
   );
 };
