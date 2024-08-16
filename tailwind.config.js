@@ -17,7 +17,7 @@ module.exports = {
         'p-white' : '#ececec',
       },
       backgroundImage: {
-        'ball-pattern' : "url('./images/ball.png')"
+        'ball-pattern' : "url('./images/colorBall.png')"
       }
     },
   },

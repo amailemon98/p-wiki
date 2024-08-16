@@ -38,6 +38,11 @@ const WikiDetail = () => {
           console.log("결과값", buildedHeightData);
 
           myData.height = buildedHeightData
+        }else if(myData.height.toString().length === 1){ 
+          let zeroDot = "0."
+          let buildedHeightData = zeroDot.toString().concat("", myData.height)
+
+          myData.height = buildedHeightData;
         }
 
         // 무게에 "." 붙이기
@@ -50,6 +55,11 @@ const WikiDetail = () => {
           console.log("결과값", buildedWeightData);
 
           myData.weight = buildedWeightData
+        }else if(myData.weight.toString().length === 1){ 
+          let zeroDot = "0."
+          let buildedWeightData = zeroDot.toString().concat("", myData.weight)
+
+          myData.weight = buildedWeightData;
         }
 
 
@@ -78,8 +88,8 @@ const WikiDetail = () => {
                       <ImgBox url={item.url} />
                       <div>
                         <div>
-                          <h2>이름 : {item.name}</h2>
                           <h2>도감번호 : {item.id}</h2>
+                          <h2>이름 : {item.name}</h2>
                           <h2>키 : {item.height} m</h2>
                           <h2>무게 : {item.weight} kg</h2>
                         </div>

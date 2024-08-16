@@ -6,7 +6,7 @@ const Wiki = () => {
 
   const [ inputSave, setInputSave ] = useState("");
   const [ inputSuggest, setInputSuggest ] = useState([]);
-  // const [ pokData, setPokData ] = useState([]);
+  const [ pokData, setPokData ] = useState("");
 
 
   useEffect(() => {
@@ -14,10 +14,13 @@ const Wiki = () => {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputSave}`);
       const data = await res.json();
       setInputSuggest(data);
+      setPokData(data.sprites.front_default)
+      
 
       // setPokData(data);
       // console.log(data);
-      // console.log(pokData);
+      // console.log("pokData", pokData);
+      console.log("front_default_img", pokData);
       // console.log(pokData.sprites.front_default);
       // console.log(pokData.name);
       // console.log("inputSuggest", inputSuggest.sprites.front_default);
@@ -48,8 +51,9 @@ const Wiki = () => {
         {
           inputSave &&
           //  inputSuggest.sprites.front_default &&
+          pokData &&
           (<InputBox
-            // img={inputSuggest.sprites.front_default}
+            img={pokData}
             name={inputSuggest.name} 
             id={inputSuggest.id}
           />)
