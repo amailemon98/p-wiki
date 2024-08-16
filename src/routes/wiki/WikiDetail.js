@@ -81,7 +81,7 @@ const WikiDetail = () => {
     <div>
         {
           loading ? ( <Loading /> )
-          : (<div className='h-[calc(100vh-93px)] flex justify-center'>
+          : (<div className='h-[calc(100vh-107px)] flex justify-center -mb-10'>
               {
                 pokData.length >=1  && pokData.map(item => (
                   <div className='w-full h-full flex flex-col items-center justify-center'>

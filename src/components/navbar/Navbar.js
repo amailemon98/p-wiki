@@ -63,7 +63,7 @@ const Navbar = () => {
     }
     
   return (
-    <nav className='w-full relative'>
+    <nav className='w-full relative h-[52px]'>
         {/* 1 depth */}
         <div className='bg-p-beige3'>
             <div className='w-10/12 h-[52px] m-auto flex items-center justify-between text-[#8d2424] text-sm md:text-xl py-3 border-b-black'>
@@ -90,7 +90,7 @@ const Navbar = () => {
         >
             {
                 menuItems.map((menu, index) => (
-                    <div className='p-5'>
+                    <div>
                         <div key={menu.name} 
                              ref={ ef => subMenuRefs.current[index] = ef}
                              className='overflow-hidden absolute w-screen top-0 left-0 flex justify-center bg-white

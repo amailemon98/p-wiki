@@ -8,8 +8,8 @@ import WikiDetail from "./routes/wiki/WikiDetail";
 
 function App() {
   return (
-    <div className="App flex flex-col w-full">
-      <header className="fixed top-0 w-full">
+    <div className="App flex flex-col w-full relative">
+      <header className="top-0 w-full">
         <h1 className="text-center bg-newP-red text-cyan-50 flex justify-center cursor-pointer">
           <Link to={"/"} className={styles.titleImg}></Link>
           {/* <PokeMain /> */}
@@ -17,8 +17,8 @@ function App() {
         <Navbar />
       </header>
 
-      <body className="pt-[93px] w-full flex justify-center">
-        <div className="w-[100%] lg:w-[80%] xl:w-[75%]">
+      <body className="w-full flex justify-center">
+        <div className="w-[100%] lg:w-[80%] xl:w-[75%] 3xl:h-[calc(100vh-147px)]">
           <div className={styles.mainBody}>
           <Routes>
             <Route path="/" element={ <Home /> } />
@@ -30,7 +30,8 @@ function App() {
       </body>
 
 
-      <footer className="bg-p-beige3 fixed bottom-0 w-screen h-[50px]">footer</footer>
+      {/* <footer className="bg-p-beige3 fixed bottom-0 w-screen h-[50px]">footer</footer> */}
+      <footer className="bg-p-beige3 bottom-0 w-screen h-[50px]">footer</footer>
       
     </div>
   );

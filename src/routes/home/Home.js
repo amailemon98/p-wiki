@@ -46,7 +46,7 @@ const Home = () => {
       <div className='flex flex-col justify-center items-center'>
         {
           loading ? ( <Loading /> )
-          : (<div className='grid grid-cols-2 grid-rows-6 gap-3 md:grid-cols-3 md:grid-rows-4 lg:grid-cols-4 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-3 mt-5 mb-16'>
+          : (<div className='grid grid-cols-2 grid-rows-6 gap-3 md:grid-cols-3 md:grid-rows-4 lg:grid-cols-4 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-3'>
               {
                 randomPoke.length >=1  && randomPoke.map(item => (
                   <ContentBox name={item.name} img={item.url} id={item.id} />

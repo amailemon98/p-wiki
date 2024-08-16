@@ -39,7 +39,7 @@ const Wiki = () => {
   }
 
   return (
-    <div className='w-full h-[calc(100vh-93px)] flex justify-center'>
+    <div className='w-full h-[calc(100vh-147px)] flex justify-center'>
       <div className='w-full mt-10 flex flex-col'>
         <div className='w-full flex flex-col justify-center items-center'>
           <input className='w-[80%] h-10 rounded-t-md text-p-white placeholder-p-white bg-p-black text-center text-lg'
