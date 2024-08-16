@@ -8,7 +8,7 @@ import WikiDetail from "./routes/wiki/WikiDetail";
 
 function App() {
   return (
-    <div className="App flex flex-col">
+    <div className="App flex flex-col w-full">
       <header className="fixed top-0 w-full">
         <h1 className="text-center bg-newP-red text-cyan-50 flex justify-center cursor-pointer">
           <Link to={"/"} className={styles.titleImg}></Link>

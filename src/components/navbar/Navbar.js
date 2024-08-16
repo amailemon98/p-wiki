@@ -66,7 +66,7 @@ const Navbar = () => {
     <nav className='w-full relative'>
         {/* 1 depth */}
         <div className='bg-p-beige3'>
-            <div className='w-10/12 m-auto flex justify-between text-[#8d2424] text-xl py-3 border-b-black'>
+            <div className='w-10/12 h-[52px] m-auto flex items-center justify-between text-[#8d2424] text-sm md:text-xl py-3 border-b-black'>
                 <ul className='flex gap-10'>
                     {
                         menuItems.map((item, index) => (

@@ -7,13 +7,11 @@ const InputBox = ({img, name, id}) => {
     // console.log(img);
     
   return (
-    <Link to={`/wiki/${id}`}>
-        <div className='w-[500px] h-30 border-[3px] border-p-black hover:border-p-red flex justify-center items-center rounded-b-md pt-[-10px]'>
-            <img src={img}></img>
-            <div>
-              <div>ID : {id}</div>
-              <div>{name}</div>
-            </div>
+    <Link className='w-[80%] h-30 border-[3px] border-p-black hover:border-p-red flex justify-center items-center rounded-b-md pt-[-10px]' to={`/wiki/${id}`}>
+        <img src={img}></img>
+        <div>
+          <div>ID : {id}</div>
+          <div>{name}</div>
         </div>
     </Link>
   )

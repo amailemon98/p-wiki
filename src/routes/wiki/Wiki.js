@@ -39,25 +39,27 @@ const Wiki = () => {
   }
 
   return (
-    <div className='h-[calc(100vh-93px)] flex justify-center'>
-      <div className='mt-10'>
-        <input className='w-[500px] h-10 rounded-t-md text-p-white placeholder-p-white bg-p-black text-center text-lg' 
-               type='text' 
-               placeholder='도감번호를 입력해 주세요.'
-               value={inputSave}
-               onChange={(ev) => handleInputChange(ev)}
-        >
-        </input>
-        {
-          inputSave &&
-          //  inputSuggest.sprites.front_default &&
-          pokData &&
-          (<InputBox
-            img={pokData}
-            name={inputSuggest.name} 
-            id={inputSuggest.id}
-          />)
-        }
+    <div className='w-full h-[calc(100vh-93px)] flex justify-center'>
+      <div className='w-full mt-10 flex flex-col'>
+        <div className='w-full flex flex-col justify-center items-center'>
+          <input className='w-[80%] h-10 rounded-t-md text-p-white placeholder-p-white bg-p-black text-center text-lg'
+                 type='text'
+                 placeholder='도감번호를 입력해 주세요.'
+                 value={inputSave}
+                 onChange={(ev) => handleInputChange(ev)}
+          >
+          </input>
+          {
+            inputSave &&
+            //  inputSuggest.sprites.front_default &&
+            pokData &&
+            (<InputBox
+              img={pokData}
+              name={inputSuggest.name}
+              id={inputSuggest.id}
+            />)
+          }
+        </div>
       </div>
     </div>
   )
