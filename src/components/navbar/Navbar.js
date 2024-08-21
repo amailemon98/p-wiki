@@ -7,30 +7,35 @@ const menuItems = [
         subCategories : [
             {
                 title : "Login",
+                href : "/account/sign_in",
                 items : [
                     '1', '2', '3', '4', '5'
                 ]
             },
             {
                 title : "Board",
+                href : "#",
                 items : [
                     '1', '2', '3', '4', '5', '6', '7'
                 ]
             },
             {
                 title : "Shop",
+                href : "/product/doll",
                 items : [
                     '1', '2', '3', '4', '5', '6', '7', '8'
                 ]
             },
             {
-                title : "Story",
+                title : "Sign-up",
+                href : "/account/sign_up",
                 items : [
                     '1', '2', '3', '4'
                 ]
             },
             {
                 title : "Help",
+                href : "#",
                 items : [
                     '1', '2', '3'
                 ]
@@ -79,7 +84,7 @@ const Navbar = () => {
                 </ul>
                 <ul className='flex gap-3 md:gap-10'>
                     {
-                        ['LOGIN', 'BOARD', 'SHOP', 'STORY', 'HELP'].map(item => <li key={item}><a href='#'>{item}</a></li>)
+                        menuItems[0].subCategories.map(item => <li key={item.title}><a href={item.href}>{item.title}</a></li>)
                     }
                 </ul>
             </div>
